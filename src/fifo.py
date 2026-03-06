@@ -18,4 +18,4 @@ def fifo(capacity, sequenceSize, sequence):
                 fifoQueue.append(sequence[i])
                 continue
     
-    print(misses)
+    return misses

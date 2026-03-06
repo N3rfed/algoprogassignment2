@@ -18,3 +18,5 @@ def lru(capacity, sequenceSize, sequence):
                 del cacheFrequency[evicted]
                 cacheFrequency[sequence[i]] = i 
                 misses += 1
+    
+    return misses
