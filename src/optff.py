@@ -1,17 +1,33 @@
 # Implementation of OPTFF (Belady’s Farthest-in-Future, optimal offline) Cache Eviction
 def optff(capacity, sequenceSize, sequence):
+    cache = set()
     misses = 0
-    cacheMap = {}
-    
-    for i in range(sequenceSize):
-        if sequence[i] in cacheMap: # First check if the cache is a hit.
-            continue
-        
-        else: # Otherwise, this is a miss. 
 
-            if len(cacheMap) != capacity: # Check if the cache is full. If not, we just continue.
-                continue
-            
-            else: # Cache is full, we need to evict
-                pass
-            misses += 1
+    for i in range(sequenceSize):
+        r = sequence[i]
+        if r in cache:
+            continue
+        misses += 1
+
+        if len(cache) < capacity:
+            cache.add(r)
+            continue
+
+        farthest = -1
+        victim = None
+
+        for item in cache:
+            next_use = float('inf')
+
+            for j in range(i + 1, sequenceSize):
+                if sequence[j] == item:
+                    next_use = j
+                    break
+
+            if next_use > farthest:
+                farthest = next_use
+                victim = item
+
+        cache.remove(victim)
+        cache.add(r)
+    return misses

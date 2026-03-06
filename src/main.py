@@ -10,11 +10,11 @@ def main():
     try:
         with open(sys.argv[1], 'r') as f:
             k, m = map(int, f.readline().split()) # Read k and m from the first line
-            sequence = list(map(int, f.read().split())) # Read sequence after k and m
+            sequence = list(map(int, f.readline().split())) # Read sequence after k and m
         
-        print(f"FIFO: {fifo(k, m, list(sequence))}")
-        print(f"LRU: {lru(k, m, list(sequence))}")
-        print(f"OPTFF: {optff(k, m, list(sequence))}")
+        print(f"FIFO: {fifo(k, m, sequence)}")
+        print(f"LRU: {lru(k, m, sequence)}")
+        print(f"OPTFF: {optff(k, m, sequence)}")
 
     except:
         print("Could not find input file.")
