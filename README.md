@@ -5,6 +5,7 @@ Jaden Delapaz, 19812001
 
 # Requirements/Assumptions
 1. Python is installed
+2. Random is imported for the random 3 input file generation (question 1) but no other libraries were used for the actual function files. question1.py is given for further testing but not needed as question1-test1 already has the 3 input files
 
 # How to Run (singular tests)
 1. In a terminal, enter the src directory
