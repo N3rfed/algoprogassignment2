@@ -9,6 +9,7 @@ Jaden Delapaz, 19812001
 # How to Run (singular tests)
 1. In a terminal, enter the src directory
 2. Run "python main.py /tests/example.in"
+3. Output file can be found as <name of input file>.out (ex: example.out)
 
 # How to Run (question 1 test and generation)
 1. In a terminal, enter the src directory

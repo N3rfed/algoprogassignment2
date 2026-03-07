@@ -1,8 +1,7 @@
-from collections import deque
 # Implementation of First In First Out Cache Eviction
 def fifo(capacity, sequenceSize, sequence):
     misses = 0
-    fifoQueue = deque(maxlen=capacity)
+    fifoQueue = []
 
     for i in range(sequenceSize):
         if sequence[i] in fifoQueue: # Hit
@@ -14,7 +13,7 @@ def fifo(capacity, sequenceSize, sequence):
                 fifoQueue.append(sequence[i])
                 continue
             else: # Queue is full
-                fifoQueue.popleft()
+                fifoQueue.pop(0)
                 fifoQueue.append(sequence[i])
                 continue
     
